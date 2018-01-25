@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{%load staticfiles %} <!-- New line -->
+<html>
+	<body>
+		<h1>Rango says here is the about page</h1>
+		<div>
+			<a href="/rango/">Back</a><br />
+			<img src="{%static "images/about.jpg" %}"
+				alt="about sign" /> <!-- New line-->
+		</div>
+		<div>
+			this tutorial has been put together by Ross Gardiner ~ 2190583g
+		</div>
+		<div>
+			<img src="{{MEDIA_URL}}cat.jpg" />
+		</div> 
+			
+	</body>
+</html>
