@@ -11,21 +11,36 @@
 		<h1>Rango says...</h1>
 	
 		<div>
-			hey there partner! <br />
+			Hey there partner! <br />
 		</div>
 		<div>
 		{% if categories %}
-		<ul>
+		<h2> Top Liked categories: </h2>
+			<ul>
 			{% for category in categories %}
 			<li>
-			<a href="/rango/category/{{category.slug}}">{{category.name}}</a>
+			<a href="/rango/category/{{ category.slug }}">{{ category.name }}</a>
 			</li>
 			{% endfor %}
 			</ul>
 			{% else %}
 				<strong>There are no categories present. </strong>
 			{% endif %}
-			</div>
+                <a href="/rango/add_category/">Add a New Category</a><br />
+                </div>
+                <div>
+                {% if pages %} 
+                        <h2> Top viewed pages: </h2>
+                        <ul>
+                        {% for page in pages %}
+		              <li>
+                              <a href="{{ page.url }}">{{ page.title }}</a>
+		        {% endfor %}
+                        </ul>
+                        {% else %} <strong> there are no pages </strong>
+                        {% endif %}
+		</div>
+			
 			
 			<div>
 				<a href="/rango/about/">About</a><br />

@@ -13,7 +13,7 @@ class Category(models.Model):
         super(Category, self).save(*args, **kwargs)
     
     class Meta:
-        verbose_name_plural = 'Categories'
+        verbose_name_plural = 'categories'
 
     def __str__(self):
         return self.name
@@ -22,6 +22,13 @@ class Page(models.Model):
     title = models.CharField(max_length=128)
     url = models.URLField()
     views = models.IntegerField(default=0)
+    #slug = models.SlugField(unique=True)
+
+    #def save(self, *args, **kwargs):
+    #    self.slug = slugify(self.title)
+    #    super(Page, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
+
+	
