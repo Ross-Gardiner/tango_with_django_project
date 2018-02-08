@@ -51,7 +51,13 @@
 		<img src="{% static "images/rango.jpg" %}"
 			alt="Picture of Rango" /> 
 	</div>
-	
+	<div>
+	{% if visits %}
+		<p> visits: {{visits}}</p>
+	{% else %}
+		<p> visits: unknown </p>
+	{% endif %}
+	</div>
 {% endblock %}
 
 				
