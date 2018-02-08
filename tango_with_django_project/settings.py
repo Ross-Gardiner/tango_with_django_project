@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rango'
+    'rango',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +51,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+PASSWORD_HASHERS = [
+	'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+	'django.contrib.auth.hashers.BCryptPasswordHasher',
+	'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+	'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 1209600
 
 ROOT_URLCONF = 'tango_with_django_project.urls'
 
@@ -71,7 +79,7 @@ TEMPLATES = [
     },
 ]
 
-
+LOGIN_URL = 'rango/login/'
 
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
@@ -96,6 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+		'OPTIONS': { 'min_length': 6,}
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
